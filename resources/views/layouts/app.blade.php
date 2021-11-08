@@ -24,7 +24,7 @@
   <body>
     <div id="bgcolor">      
       <nav class="navbar navbar-expand-lg shadow" style="height: 50px">
-        <a class="nav-item mx-auto" href="{{ route('index') }}"><img src="{{ asset('/img/icon2.png') }}" style="width: 30px" class="img-fluid" /><span style="color: black;"> FindOwner - Find Me Now! </span></a>
+        <a class="nav-item mx-auto" href="{{ route('index') }}"><img src="{{ asset('/img/icon2.png') }}" style="width: 30px" class="img-fluid" /><span style="color: black;"> FindOwner </span></a>
       </nav>
 
       <div class="container-fluid center">

@@ -28,8 +28,6 @@
           #searchblock {
             padding-top: 100px;
             padding-bottom: 100px;
-            padding-right: 15%;
-            padding-left: 14%;
           }
         </style>
     </head>

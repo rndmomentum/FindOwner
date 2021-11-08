@@ -26,8 +26,6 @@
           #searchblock {
             padding-top: 100px;
             padding-bottom: 100px;
-            padding-right: 15%;
-            padding-left: 14%;
           }
         </style>
     </head>
@@ -37,7 +35,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-5">
                     <div class="card shadow-lg mx-auto">
-                        <h5 class="text-center" style="padding: 10px 0px 10px; background-color: #810000; color:white">FindOwner - Find Me Now!</h5>
+                        <h5 class="text-center" style="padding: 10px 0px 10px; background-color: #810000; color:white">FindOwner</h5>
                         <div class="card-body text-center">
                             <div class="row">
                                 <div class="col-md-12">
