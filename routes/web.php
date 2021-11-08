@@ -34,4 +34,4 @@ Route::post('/store',[ CarController::class, 'store' ])->name('FindMeNow/store')
 //for view details only
 Route::get('/show/{noplate}',[ CarController::class, 'show' ])->name('FindMeNow/show');
 //search NO PLATE function
-Route::get('/result/', [CarController::class, 'search' ])->name('FindMeNow/result');
+Route::get('result/', [CarController::class, 'search' ])->name('FindMeNow/result');
