@@ -26,6 +26,8 @@
           #searchblock {
             padding-top: 100px;
             padding-bottom: 100px;
+            padding-right: 20px;
+            padding-left: 20px;
           }
         </style>
     </head>
