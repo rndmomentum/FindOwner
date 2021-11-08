@@ -1,16 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-    <!-- <div class="card shadow-lg col-md-10 text-center">   -->
-    <div class="col-md-12 mt-3">
-        @if(session('success'))
-            <div class="alert alert-success">
-                <small><strong>Successful!</strong> {{ session('success') }}</small>
-            </div>
-        @endif   
+    
+    <div class="row">
+        <div class="col-md-12 mt-3">
+            @if(session('success'))
+                <div class="alert alert-success">
+                    <small><strong>Successful!</strong> {{ session('success') }}</small>
+                </div>
+            @endif  
+        </div>
     </div>
-
-    <small><div class="alert alert-secondary mt-3 mb-3">
+   
+    <small><div class="alert alert-secondary mt-2 mb-3">
         <div class="row">
             <a href="{{ route('FindMeNow/search') }}" class="pr-1" style="color: black"><i class="bi bi-arrow-left pl-2 pr-2"></i></a>
             <a href="{{ route('index') }}" class="pr-1" style="color: black"> Home </a> /
@@ -31,7 +33,7 @@
                 </div>
 
                 <div class="col-md-12 mb-3">
-                    <a class="btn btn-dark btn-sm float-right" href="{{ route('FindMeNow/create') }}"><i class="bi bi-plus-lg"></i> Add Vehicle Details</a> 
+                    <a class="btn btn-dark btn-sm float-right" href="{{ route('FindMeNow/create') }}"><i class="bi bi-plus-lg"></i> Add</a> 
                 </div>
 
                 <!-- search form -->
@@ -39,7 +41,7 @@
                     <form action="{{ route('FindMeNow/all') }}" method="GET" role="search">
                         <div class="input-group">
                             <button href="{{ route('FindMeNow/all') }}" class="btn btn-danger btn-sm"><span class="bi bi-arrow-repeat"></span></button>
-                            <input type="text" class="form-control form-control-sm" name="all" placeholder="Search..." id="all" autofocus>
+                            <input type="text" class="form-control form-control-sm" name="all" placeholder="Search..." id="all">
                             <button class="btn btn-dark btn-sm" type="submit">
                                 <span class="bi bi-search"></span>
                             </button>

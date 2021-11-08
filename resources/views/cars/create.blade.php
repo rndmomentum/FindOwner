@@ -1,16 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="col-md-12 mt-3">
-        @if(session('error'))
-            <div class="alert alert-danger">
-                <small><strong>Sorry!</strong> {{ session('error') }}</small>
-            </div>
-        @endif
+
+    <div class="row">
+        <div class="col-md-12 mt-3">
+            @if(session('error'))
+                <div class="alert alert-danger">
+                    <small><strong>Sorry!</strong> {{ session('error') }}</small>
+                </div>
+            @endif 
+        </div>
     </div>
 
     @if(URL::previous() === route('FindMeNow/all'))
-        <small><div class="alert alert-secondary mt-3">
+        <small><div class="alert alert-secondary mt-2">
             <div class="row">
                 <a href="{{ route('FindMeNow/all') }}" class="pr-1" style="color: black"><i class="bi bi-arrow-left pl-2 pr-2"></i></a>
                 <a href="{{ route('index') }}" class="pr-1" style="color: black"> Home </a> /
@@ -20,7 +23,7 @@
             </div>
         </div></small>
     @elseif(URL::previous() === route('index'))
-        <small><div class="alert alert-secondary mt-3">
+        <small><div class="alert alert-secondary mt-2">
             <div class="row">
                 <a href="{{ route('index') }}" class="pr-1" style="color: black"><i class="bi bi-arrow-left pl-2 pr-2"></i></a>
                 <a href="{{ route('index') }}" class="pr-1" style="color: black"> Home </a> /
@@ -28,7 +31,7 @@
             </div>
         </div></small> 
     @else
-        <small><div class="alert alert-secondary mt-3">
+        <small><div class="alert alert-secondary mt-2">
             <div class="row">
                 <a href="{{ route('FindMeNow/search') }}" class="pr-1" style="color: black"><i class="bi bi-arrow-left pl-2 pr-2"></i></a>
                 <a href="{{ route('index') }}" class="pr-1" style="color: black"> Home </a> /

@@ -70,16 +70,24 @@
             </div>
         </div>
     @else
-        <div class="col-md-12 mt-3 mb-3">
-            <div class="alert alert-danger">
-                <small><strong>Sorry!</strong> The plate number not exists.</small>
+        <div class="row">
+            <div class="col-md-12 mt-3">
+                <div class="alert alert-danger">
+                    <small><strong>Sorry!</strong> The plate number not exists.</small>
+                </div>
             </div>
         </div>
 
         <div class="card shadow-lg mb-4 mx-auto">
             <div class="card-body text-center">
-                <h5>Register your vehicle <a href="{{ route('FindMeNow/create') }}" type="button" class="btn btn-dark btn-sm"><strong>Now!</strong></a></h5>
-                <a href="{{ route('FindMeNow/search') }}" class="btn btn-danger btn-sm">Back</a>  
+                <div class="col-md-12">
+                    <div class="d-grid mx-auto col-11 pb-3">
+                        <h5>Register your vehicle <a href="{{ route('FindMeNow/create') }}" ><strong>HERE</strong></a></h5>
+                    </div>
+                    <div class="d-grid mx-auto col-11 pb-3">
+                        <a href="{{ route('FindMeNow/search') }}" class="btn btn-block btn-danger btn-sm">Back</a>
+                    </div>  
+                </div>
             </div>
         </div>
     @endif

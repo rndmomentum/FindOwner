@@ -39,9 +39,9 @@
             <div class="row justify-content-center">
                 <div class="col-md-5 align-center">
                     <div class="card shadow-lg">
-                        <h5 class="text-center" style="padding: 10px 0px 10px; background-color: #810000; color:white">FindOwner - Find Me Now!</h5>
+                        <h5 class="text-center" style="padding: 10px 0px 10px; background-color: #810000; color:white">FindOwner</h5>
+
                         <div class="card-body">
-                            <div class="col-2 mb-2"><a class="btn-sm btn-danger" href="{{ route('index') }}"><i class="bi bi-chevron-left"></i></a></div>
                             <div class="col-12 mb-4"><h5 class="text-center"><strong>Search Vehicle Owner</strong></h5></div>
 
                             <div class="col-md-12">
@@ -57,8 +57,11 @@
                                             Please remove space.
                                         </div>
                                     </div>
-                                    <div class="d-grid mx-auto col-11 pb-3">
+                                    <div class="d-grid mx-auto col-11 pb-1">
                                         <button type="submit" class="btn btn-dark btn-block btn-sm  ">Search</button>
+                                    </div>
+                                    <div class="d-grid mx-auto col-11 pb-3">
+                                        <a href="{{ route('index') }}" class="btn btn-danger btn-block btn-sm ">Back</a>
                                     </div>
                                 </form>
                                 <center><div class="row "><small>

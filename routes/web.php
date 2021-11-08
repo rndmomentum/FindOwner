@@ -14,12 +14,12 @@ use App\Http\Controllers\CarController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // Route::resource('cars', CarController::class);
-Route::get('cars',[ CarController::class, 'index'])->name('index');
+Route::get('/',[ CarController::class, 'index'])->name('index');
 Route::get('cars/search',[ CarController::class, 'indexSearch' ])->name('FindMeNow/search');
 // Route::get('cars/carlist', 'CarController@allList');
 Route::get('cars/carlist',[ CarController::class, 'allList' ])->name('FindMeNow/all');
