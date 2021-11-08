@@ -100,7 +100,7 @@ class CarController extends Controller
                 'valid' => request('valid'),
             ]);
             //success go to all list
-            return redirect('cars/carlist')->with('success', 'The vehicle details is added successfully.');
+            return view('cars.carlist')->with('success', 'The vehicle details is added successfully.');
             // echo"takde";
         }
     }
