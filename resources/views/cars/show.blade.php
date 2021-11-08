@@ -30,7 +30,7 @@
                         <table class="table" style="border: 1px solid lightgray;">
                             <tbody>
                                 <tr>
-                                    <th class="col-3" style="background-color: #810000; color: white; font-size: 10pt">Type</th>
+                                    <th style="background-color: #810000; color: white; font-size: 10pt">Type</th>
                                     <td style="font-size: 10pt">{{ $owner->type }}</td>
                                 </tr>
                                 <tr>

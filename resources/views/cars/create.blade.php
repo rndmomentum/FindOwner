@@ -50,7 +50,7 @@
                         <h5> Create Vehicle Detail </h5>
                     </div>
                     <div class="border border-danger pt-2">
-                        <small><p class="text-justify text-center pr-2 pl-2"><span class="text-danger">*</span> 
+                        <small><p class="text-justify text-center pr-1 pl-1"><span class="text-danger">*</span> 
                             Please be reminded that the plate number can be insert only once and this information cannot be modify. Thank You.</p>
                         </small>
                     </div>
