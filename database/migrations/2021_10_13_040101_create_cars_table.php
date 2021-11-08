@@ -24,7 +24,7 @@ class CreateCarsTable extends Migration
             $table->string('nophone');
             $table->tinyInteger('valid');
             $table->timestamps();
-            $table->softDeletes();
+            // $table->softDeletes();
         });
     }
 

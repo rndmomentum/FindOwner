@@ -4,11 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletingTrait;
+// use Illuminate\Database\Eloquent\SoftDeletingTrait;
 
 class Car extends Model
 {
-    use HasFactory, SoftDeletingTrait;
+    use HasFactory;
+    // use SoftDeletingTrait;
 
     protected $table ='cars';
 
