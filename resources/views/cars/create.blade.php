@@ -125,7 +125,7 @@
                         <div class="row">
                         <label for="description" class="col-sm-4 col-form-label col-md-2" style="font-size: 10pt">Vehicle Description</label>
                             <div class="col-sm-8 col-md-10 mb-3">
-                                <textarea rows="4" class="form-control" name="description" style="font-size: 10pt" placeholde="Brand, Type, Color, Specific Features, etc..."></textarea>
+                                <textarea rows="4" class="form-control" name="description" style="font-size: 10pt" placeholder="Brand, Model, Color, Specific Features, etc..."></textarea>
                             </div>
                         </div>
 
