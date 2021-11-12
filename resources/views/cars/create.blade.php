@@ -65,7 +65,8 @@
                                 <select class="custom-select" name="type" id="validationCustom01" style="font-size: 10pt" required>
                                     <option value="">Choose...</option>
                                     <option value="Car">Car</option>
-                                    <option value="Motorcycle">Motorcycle</option>	
+                                    <option value="Motorcycle">Motorcycle</option>
+                                    <option value="Van">Van</option>
                                 </select>
                                 <div class="invalid-feedback">
                                     Please select a vehicle type.
