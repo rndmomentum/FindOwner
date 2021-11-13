@@ -105,8 +105,8 @@
                             <div class="col-sm-8 col-md-4 mb-3">
                                 <select class="custom-select" name="department" id="validationCustom05" style="font-size: 10pt" required>
                                     <option value="">Choose Department...</option>
-                                    <option value="F&A">Admin & HR (HR)</option>
-                                    <option value="HR">Account & Finance (A&F)</option>
+                                    <option value="A&F">Account & Finance (A&F)</option>
+                                    <option value="HR">Admin & HR (HR)</option>
                                     <option value="Marketing">Marketing</option>
                                     <option value="Operation">Operation</option>
                                     <option value="R&D">Research and Development (R&D)</option>
