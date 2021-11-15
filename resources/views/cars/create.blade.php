@@ -107,6 +107,7 @@
                                     <option value="">Choose Department...</option>
                                     <option value="A&F">Account & Finance (A&F)</option>
                                     <option value="HR">Admin & HR (HR)</option>
+                                    <option value="CEO Office">CEO Office</option>
                                     <option value="Marketing">Marketing</option>
                                     <option value="Operation">Operation</option>
                                     <option value="R&D">Research and Development (R&D)</option>
