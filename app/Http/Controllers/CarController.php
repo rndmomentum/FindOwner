@@ -68,7 +68,7 @@ class CarController extends Controller
     public function create()
     {
         return view('cars.create');
-    }
+    }    
 
     /**
      * Store a newly created resource in storage.
