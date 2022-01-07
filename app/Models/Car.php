@@ -13,7 +13,16 @@ class Car extends Model
 
     protected $table ='cars';
 
-    protected $fillable = ['noplate', 'description', 'type', 'staffname', 'department', 'unit', 'nophone', 'valid'];
+    protected $fillable = [
+        'noplate',
+        'description',
+        'type',
+        'staffname',
+        'department',
+        'unit',
+        'nophone',
+        'valid'
+    ];
 
     protected $dates = ['deleted_at'];
 }
