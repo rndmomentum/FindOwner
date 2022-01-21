@@ -4,14 +4,16 @@
 
     @if(isset($owner))
 
-        <small><div class="alert alert-secondary mt-3">
-            <div class="row">
-                <a href="{{ route('FindMeNow/search') }}" class="pr-1" style="color: black"><i class="bi bi-arrow-left pl-2 pr-2"></i></a>
-                <a href="{{ route('index') }}" class="pr-1" style="color: black"> Home </a> /
-                <a href="{{ route('FindMeNow/search') }}" class="pr-1 pl-1" style="color: black"> Search </a> /
-                <a href="" class="alert-link pl-1 pr-1" style="color: black">Vehicle Detail</a>
-            </div>
-        </div></small>
+    <div class="col-md-12 mt-3">
+        <small><nav aria-label="breadcrumb" >
+            <ol class="breadcrumb" >
+                <li class="breadcrumb-item"><a href="{{ url('carlist') }}/{{ $refer_id }}" style="color: black"><i class="bi bi-arrow-left pl-2 pr-2"></i></a>
+                <li class="breadcrumb-item"><a href="{{ url('search') }}/{{ $refer_id }}" style="color: black">Search</a></li>
+                <li class="breadcrumb-item"><a href="{{ url('carlist') }}/{{ $refer_id }}" style="color: black">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="">Vehicle Details</a></li>
+            </ol>
+        </nav></small>
+    </div>
 
         <div class="card shadow-lg mt-3 mb-4">
             <div class="card-body">
@@ -26,6 +28,14 @@
                     <div class="col-md-12 text-center mb-3">
                         <h5>Plate Number <p style="text-transform: uppercase">{{ $owner->noplate }}</p></h5>
                     </div>
+
+                    @if($owner->img_path == '')
+                        <div class="mb-0 row"></div>
+                    @else
+                        <div class="col-md-12 text-center mb-3">
+                            <img src="{{ asset($owner->img_path) }}" style="max-width:30%" class="img-fluid">
+                        </div>
+                    @endif
 
                     <div class="col-md-12 mb-3">
                         <div class="table-responsive">
@@ -70,22 +80,15 @@
             </div>
         </div>
     @else
-        <div class="row">
-            <div class="col-md-12 mt-3">
-                <div class="alert alert-danger">
-                    <small><strong>Sorry!</strong> The plate number not exists.</small>
-                </div>
-            </div>
-        </div>
 
-        <div class="card shadow-lg mb-4 mx-auto">
+        <div class="card shadow-lg mt-4 mb-4 mx-auto">
             <div class="card-body text-center">
                 <div class="col-md-12">
                     <div class="d-grid mx-auto col-11 pb-3">
-                        <h5>Register your vehicle <a href="{{ route('FindMeNow/create') }}" ><strong>HERE</strong></a></h5>
+                        <h5><strong>Sorry!</strong> The plate number not exists.</h5>
                     </div>
                     <div class="d-grid mx-auto col-11 pb-3">
-                        <a href="{{ route('FindMeNow/search') }}" class="btn btn-block btn-danger btn-sm">Back</a>
+                        <a href="{{ url('search') }}/{{ $refer_id }}" class="btn btn-block btn-danger btn-sm">Back</a>
                     </div>  
                 </div>
             </div>

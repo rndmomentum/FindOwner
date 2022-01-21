@@ -1,3 +1,5 @@
+@if(!isset(Auth::guard('carDetails')->user()->refer_id))
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!-- icon top -->
-        <link rel="icon" type="image/png" href="{{ asset('/img/icon2.png') }}" sizes="16x16">
+        <link rel="icon" type="image/png" href="img/icon2.png" sizes="16x16">
         <title>FindOwner</title>
 
         <!-- Fonts -->
@@ -19,17 +21,13 @@
         <link href="https://bootswatch.com/lux/bootstrap.css" rel="stylesheet" type="text/css" />
         <!-- onchange function -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <!-- icon fas fa -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
         <!-- icon bi -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
 
         <style>
           #searchblock {
-            padding-top: 100px;
-            padding-bottom: 100px;
-            padding-right: 20px;
-            padding-left: 20px;
+            padding-top: 45px;
+            padding-bottom: 45px;
           }
         </style>
     </head>
@@ -37,44 +35,61 @@
     <body>
         <div id="searchblock">
             <div class="row justify-content-center">
-                <div class="col-md-5 align-center">
+
+                <div class="col-md-5 p-4">
                     <div class="card shadow-lg">
-                        <h5 class="text-center" style="padding: 10px 0px 10px; background-color: #810000; color:white">FindOwner</h5>
+                        <h5 class="text-center" style="padding: 10px 0px 10px; background-color: #810000; color:white">Log In</h5>
 
                         <div class="card-body">
-                            <div class="col-12 mb-4"><h5 class="text-center"><strong>Search Vehicle Owner</strong></h5></div>
+
+                            <div class="col-md-12 mb-3 text-center">
+                                <img src="img/icon2.png" style="width: 150px" class="img-fluid col-md-4" /><br>
+                                <strong style="font-family: 'Helvetica';">FindOwner - Momentum Internet Sdn Bhd</strong>
+                            </div>
 
                             <div class="col-md-12">
-                                <center><img src=" {{ asset('img/logo.png') }}  " style="width: 180px" class="img-fluid" /></center>
-                                <center><p style="font-family: 'Helvetica'">Empower Your Success</p></center>
-                            </div>
-                            <div class="col-md-12">
-                                <form method="GET" action="{{ route('FindMeNow/result') }}" class="needs-validation" novalidate>
+                                <form method="POST" action="{{ url('loginProcess') }}" class="needs-validation" novalidate>
+                                    @csrf
                                     <div class="d-grid mx-auto col-11 pb-3">
-                                        <input style="font-size: 10pt" type="text" placeholder="Insert Plate Number (No Space)" id="validationCustom00" class="form-control" pattern="^[-a-zA-Z0-9@\.+_]+$" title="Please remove space between characters" name="noplate" required
-                                            autofocus />
-                                        <div class="invalid-feedback">
-                                            Please remove space.
+                                        <input style="font-size: 10pt" type="text" placeholder="Insert Plate Number (No Space)" id="validationCustom00" class="form-control" pattern="^[-a-zA-Z0-9@\.+_]+$" name="noplate" required autofocus />
+                                        <div class="invalid-feedback">Please remove space between characters.</div>
+                                        @if ($errors->has('noplate'))
+                                            <span class="text-danger">{{ $error->first('noplate') }}</span>
+                                        @endif
+                                    </div>
+
+                                    <div class="d-grid mx-auto col-11 pb-3">
+                                        <input style="font-size: 10pt" type="password" placeholder="Insert Password" id="validationCustom01" class="form-control" name="password" required />
+                                        <div class="invalid-feedback">Please insert password.</div>
+                                        @if ($errors->has('password'))
+                                            <span class="text-danger">{{ $error->first('password') }}</span>
+                                        @endif
+
+                                        <div class="col-md-12 text-center">
+                                            @if(session('error'))
+                                                <small style="color: red;">Sorry! {{ session('error') }}</small>
+                                            @endif 
                                         </div>
                                     </div>
+
                                     <div class="d-grid mx-auto col-11 pb-1">
-                                        <button type="submit" class="btn btn-dark btn-block btn-sm  ">Search</button>
-                                    </div>
-                                    <div class="d-grid mx-auto col-11 pb-3">
-                                        <a href="{{ route('index') }}" class="btn btn-danger btn-block btn-sm ">Back</a>
+                                        <button type="submit" class="btn btn-dark btn-block btn-sm ">Log In</button>
                                     </div>
                                 </form>
+
                                 <center><div class="row "><small>
-                                    Click here to view all vehicle <a href="{{ route('FindMeNow/all') }}"> Click Here</a>
+                                    Haven't insert any vehicle details here, you can insert now by <a href="{{ url('register') }}"> Clicking Here</a>
                                 </small></div></center>
                                 <br>
                             </div>
                         </div>
                     </div>
                 </div>
+            
             </div>
         </div>
     </body>
+</html>
 
     <script>
         (function() {
@@ -94,4 +109,13 @@
             });
         }, false);
         })();
-    </script> 
+    </script>
+
+@else
+    {{ Session::flush(); }}
+
+    <script>
+        location.replace("{{ url('/') }}");
+    </script>   
+  
+@endif

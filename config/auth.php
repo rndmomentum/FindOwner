@@ -40,6 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'carDetails' => [
+            'driver' => 'session',
+            'provider' => 'cars',
+        ] 
     ],
 
     /*
@@ -60,9 +64,9 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'cars' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model' => App\Models\Car::class,
         ],
 
         // 'users' => [
@@ -87,8 +91,8 @@ return [
     */
 
     'passwords' => [
-        'users' => [
-            'provider' => 'users',
+        'cars' => [
+            'provider' => 'cars',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

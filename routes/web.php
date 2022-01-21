@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,25 +15,33 @@ use App\Http\Controllers\CarController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//login process
+Route::get('/',[ LoginController::class, 'showlogin']);
+Route::post('loginProcess',[ LoginController::class, 'login']);  // view page
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+// first time create
+Route::get('register',[ RegisterController::class, 'register']); // view page
+Route::post('register/save',[ RegisterController::class, 'postRegister']);
 
-// Route::resource('cars', CarController::class);
-Route::get('/',[ CarController::class, 'index'])->name('index');
-Route::get('/search',[ CarController::class, 'indexSearch' ])->name('FindMeNow/search');
-// Route::get('cars/carlist', 'CarController@allList');
-Route::get('/carlist',[ CarController::class, 'allList' ])->name('FindMeNow/all');
+//main
+// Route::get('/',[ CarController::class, 'index']); //Index
+Route::get('search/{refer_id}',[ CarController::class, 'indexSearch' ]); //Search Page
+Route::get('carlist/{refer_id}',[ CarController::class, 'allList' ]); //All Vehicle List
 
-//for create
-Route::get('/create',[ CarController::class, 'create' ])->name('FindMeNow/create');
-Route::post('/store',[ CarController::class, 'store' ])->name('FindMeNow/store');
+//for create new
+Route::get('create/{refer_id}',[ CarController::class, 'create' ]);
+Route::post('store/{refer_id}',[ CarController::class, 'store' ]);
 
-//for edit details
-// Route::get('/edit/{noplate}',[ CarController::class, 'edit' ])->name('FindMeNow/edit');
-// Route::get('/update/{noplate}',[ CarController::class, 'update' ])->name('FindMeNow/update');
-//for view details only
-Route::get('/show/{noplate}',[ CarController::class, 'show' ])->name('FindMeNow/show');
-//search NO PLATE function
-Route::get('result/', [CarController::class, 'search' ])->name('FindMeNow/result');
+//for display details only
+Route::get('show/{refer_id}/{noplate}',[ CarController::class, 'show' ]);
+Route::get('result/{refer_id}', [CarController::class, 'search' ]);
+
+//for edit
+Route::get('profile/{refer_id}',[ CarController::class, 'profile' ]);
+Route::post('edit/profile/{refer_id}',[ CarController::class, 'update' ]);
+Route::post('edit/password/{refer_id}',[ CarController::class, 'updatePassword' ]);
+Route::post('edit/vehicle/{refer_id}/{noplate}',[ CarController::class, 'updateVehicle' ]);
+
+// logout
+Route::post('logout',[ LoginController::class, 'logout' ]);
+

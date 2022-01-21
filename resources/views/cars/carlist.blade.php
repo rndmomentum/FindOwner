@@ -11,15 +11,16 @@
             @endif  
         </div>
     </div>
-   
-    <small><div class="alert alert-secondary mt-2 mb-3">
-        <div class="row">
-            <a href="{{ route('FindMeNow/search') }}" class="pr-1" style="color: black"><i class="bi bi-arrow-left pl-2 pr-2"></i></a>
-            <a href="{{ route('index') }}" class="pr-1" style="color: black"> Home </a> /
-            <a href="{{ route('FindMeNow/search') }}" class="pr-1 pl-1" style="color: black"> Search </a> /
-            <a href="" class="alert-link pl-1 pr-1" style="color: black">Vehicle List</a>
-        </div>
-    </div></small>
+    
+    <small><nav aria-label="breadcrumb" >
+        <ol class="breadcrumb" >
+            <li class="breadcrumb-item"><a href="{{ url('search') }}/{{ $refer_id }}" style="color: black"><i class="bi bi-arrow-left pl-2 pr-2"></i></a>
+            <li class="breadcrumb-item"><a href="{{ url('search') }}/{{ $refer_id }}" style="color: black">Search</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="">Home</a></li>
+        </ol>
+    </nav></small>
+        
+</div>
 
     <div class="card shadow-lg mb-4">
         <div class="card-body">
@@ -33,14 +34,14 @@
                 </div>
 
                 <div class="col-md-12 mb-3">
-                    <a class="btn btn-dark btn-sm float-right" href="{{ route('FindMeNow/create') }}"><i class="bi bi-plus-lg"></i> Add</a> 
+                    <a class="btn btn-dark btn-sm float-right" href="{{ url('create') }}/{{ $refer_id }}"><i class="bi bi-plus-lg"></i> Add</a> 
                 </div>
 
                 <!-- search form -->
                 <div class="col-md-12 mb-3">
-                    <form action="{{ route('FindMeNow/all') }}" method="GET" role="search">
+                    <form action="{{ url('carlist') }}/{{ $refer_id }}" method="GET" role="search">
                         <div class="input-group">
-                            <button href="{{ route('FindMeNow/all') }}" class="btn btn-danger btn-sm"><span class="bi bi-arrow-repeat"></span></button>
+                            <button href="{{ url('carlist') }}/{{ $refer_id }}" class="btn btn-danger btn-sm"><span class="bi bi-arrow-repeat"></span></button>
                             <input type="text" class="form-control form-control-sm" name="all" placeholder="Search..." id="all">
                             <button class="btn btn-dark btn-sm" type="submit">
                                 <span class="bi bi-search"></span>
@@ -72,13 +73,12 @@
                                 @foreach($lists as $data)
                                     <tr>
                                         <th scope="row" style="text-align: center;">{{ $i += 1 }}</th>
-                                        <!-- dd{{$i}} -->
                                         <td>{{ $data->type }}</td>
                                         <td style="text-transform:uppercase">{{ $data->noplate }}</td>
                                         <td style="text-transform:capitalize">{{ $data->staffname }}</td>
                                         <td>{{ $data->department }}</td>
                                         <td><a href="tel:+6{{ $data->nophone }}">+6{{ $data->nophone }}</a></td>
-                                        <td><a style="position: center;" href="{{ route('FindMeNow/show', $data->id) }}" class="btn btn-dark btn-sm"><i class="bi bi-chevron-right "></i></a></td>
+                                        <td><a style="position: center;" href="{{ url('show') }}/{{ $refer_id }}/{{ $data->noplate }}" class="btn btn-dark btn-sm"><i class="bi bi-chevron-right "></i></a></td>
                                     </tr>
                                 @endforeach
                             </tbody>

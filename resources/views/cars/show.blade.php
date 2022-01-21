@@ -1,17 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-    <small><div class="alert alert-secondary mt-3">
-        <div class="row">
-            <a href="{{ route('FindMeNow/all') }}" class="pr-1" style="color: black"><i class="bi bi-arrow-left pl-2 pr-2"></i></a>
-            <a href="{{ route('index') }}" class="pr-1" style="color: black"> Home </a> /
-            <a href="{{ route('FindMeNow/search') }}" class="pr-1 pl-1" style="color: black"> Search </a> /
-            <a href="{{ route('FindMeNow/all') }}" class="pr-1 pl-1" style="color: black"> Vehicle List </a> /
-            <a href="" class="alert-link pl-1 pr-1" style="color: black">Vehicle Detail</a>
-        </div>
-    </div></small>
 
-    <div class="card shadow-lg mt-3 mb-4">
+    <div class="col-md-12 mt-3">
+        <small><nav aria-label="breadcrumb" >
+            <ol class="breadcrumb" >
+                <li class="breadcrumb-item"><a href="{{ url('carlist') }}/{{ $refer_id }}" style="color: black"><i class="bi bi-arrow-left pl-2 pr-2"></i></a>
+                <li class="breadcrumb-item"><a href="{{ url('search') }}/{{ $refer_id }}" style="color: black">Search</a></li>
+                <li class="breadcrumb-item"><a href="{{ url('carlist') }}/{{ $refer_id }}" style="color: black">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="">Vehicle Details</a></li>
+            </ol>
+        </nav></small>
+    </div>
+
+    <div class="card shadow-lg mt-3 mb-4 pd-5">
         <div class="card-body">
             <div class="row">
 
@@ -25,39 +27,84 @@
                     <h5>Plate Number <p style="text-transform: uppercase">{{ $owner->noplate }}</p></h5>
                 </div>
 
-                <div class="col-md-12 mb-3">
-                    <div class="table-responsive">
-                        <table class="table" style="border: 1px solid lightgray;">
-                            <tbody>
-                                <tr>
-                                    <th style="background-color: #810000; color: white; font-size: 10pt">Type</th>
-                                    <td style="font-size: 10pt">{{ $owner->type }}</td>
-                                </tr>
-                                <tr>
-                                    <th style="background-color: #810000; color: white; font-size: 10pt">Name</th>
-                                    <td style="text-transform: capitalize; font-size: 10pt">{{ $owner->staffname }}</td>
-                                </tr>
-                                <tr>
-                                    <th style="background-color: #810000; color: white; font-size: 10pt">Department</th>
-                                    <td style="text-transform: capitalize; font-size: 10pt">{{ $owner->department }}
-                                    @if($owner->unit == '')
-                                        &nbsp;
-                                    @else
-                                        ( {{ $owner->unit }} )
-                                    @endif
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th style="background-color: #810000; color: white; font-size: 10pt">Phone</th>
-                                    <td style="font-size: 10pt"><a href="tel:+6{{ $owner->nophone }}">+6{{ $owner->nophone }}</a></td>
-                                </tr>
-                                <tr>
-                                    <th rowspan="2" style="background-color: #810000; color: white; font-size: 10pt">Description</th>
-                                    <td rowspan="2" style="font-size: 10pt">{!! $owner->description !!}</td>
-                                </tr>
-                            </tbody>
-                        </table>                        
-                    </div>
+                <div class="row">
+                    @if($owner->img_path == '')
+                        <div class="mb-0 row"></div>
+
+                        <div class="col-md-12 mb-3">
+                            <div class="table-responsive">
+                                <table class="table" style="border: 1px solid lightgray;">
+                                    <tbody>
+                                        <tr>
+                                            <th style="background-color: #810000; color: white; font-size: 10pt">Type</th>
+                                            <td style="font-size: 10pt">{{ $owner->type }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th style="background-color: #810000; color: white; font-size: 10pt">Name</th>
+                                            <td style="text-transform: capitalize; font-size: 10pt">{{ $owner->staffname }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th style="background-color: #810000; color: white; font-size: 10pt">Department</th>
+                                            <td style="text-transform: capitalize; font-size: 10pt">{{ $owner->department }}
+                                            @if($owner->unit == '')
+                                                &nbsp;
+                                            @else
+                                                ( {{ $owner->unit }} )
+                                            @endif
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th style="background-color: #810000; color: white; font-size: 10pt">Phone</th>
+                                            <td style="font-size: 10pt"><a href="tel:+6{{ $owner->nophone }}">+6{{ $owner->nophone }}</a></td>
+                                        </tr>
+                                        <tr>
+                                            <th rowspan="2" style="background-color: #810000; color: white; font-size: 10pt">Description</th>
+                                            <td rowspan="2" style="font-size: 10pt">{!! $owner->description !!}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>                        
+                            </div>
+                        </div>
+                    @else
+                        <div class="col-md-4 text-center align-middle mb-3">
+                            <img src="{{ asset($owner->img_path) }}" style="max-width:50%" class="img-fluid">
+                        </div>
+
+                        <div class="col-md-8 mb-3">
+                            <div class="table-responsive">
+                                <table class="table" style="border: 1px solid lightgray;">
+                                    <tbody>
+                                        <tr>
+                                            <th style="background-color: #810000; color: white; font-size: 10pt">Type</th>
+                                            <td style="font-size: 10pt">{{ $owner->type }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th style="background-color: #810000; color: white; font-size: 10pt">Name</th>
+                                            <td style="text-transform: capitalize; font-size: 10pt">{{ $owner->staffname }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th style="background-color: #810000; color: white; font-size: 10pt">Department</th>
+                                            <td style="text-transform: capitalize; font-size: 10pt">{{ $owner->department }}
+                                            @if($owner->unit == '')
+                                                &nbsp;
+                                            @else
+                                                ( {{ $owner->unit }} )
+                                            @endif
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th style="background-color: #810000; color: white; font-size: 10pt">Phone</th>
+                                            <td style="font-size: 10pt"><a href="tel:+6{{ $owner->nophone }}">+6{{ $owner->nophone }}</a></td>
+                                        </tr>
+                                        <tr>
+                                            <th rowspan="2" style="background-color: #810000; color: white; font-size: 10pt">Description</th>
+                                            <td rowspan="2" style="font-size: 10pt">{!! $owner->description !!}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>                        
+                            </div>
+                        </div>
+                    @endif
                 </div>
                 
                 <div class="col-md-12">
