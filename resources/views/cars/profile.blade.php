@@ -76,6 +76,7 @@
                                                         <option value="A&F" {{ $car->department == 'A&F' ? 'selected' : '' }} >Account & Finance (A&F)</option>
                                                         <option value="HR" {{ $car->department == 'HR' ? 'selected' : '' }} >Admin & HR (HR)</option>
                                                         <option value="CEO Office" {{ $car->department == 'CEO Office' ? 'selected' : '' }} >CEO Office</option>
+                                                        <option value="HNC" {{ $car->department == 'HNC' ? 'selected' : '' }} >High Network Client (HNC)</option>
                                                         <option value="Marketing" {{ $car->department == 'Marketing' ? 'selected' : '' }} >Marketing</option>
                                                         <option value="Operation" {{ $car->department == 'Operation' ? 'selected' : '' }} >Operation</option>
                                                         <option value="R&D" {{ $car->department == 'R&D' ? 'selected' : '' }} >Research and Development (R&D)</option>
@@ -157,7 +158,7 @@
                                             <div class="row justify-content-center mb-3">
                                                 <label for="new-password-confirm" class="col-form-label col-md-2" style="font-size: 10pt">Confirm New Password</label>
                                                 <div class="col-md-4 mb-3">
-                                                    <input type="password" class="form-control" name="new-password-confirm" id="new-password_confirmation" style="font-size: 10pt" placeholder="Please Confirm Your New Password" required/>
+                                                    <input type="password" class="form-control" name="new-password_confirmation" id="new-password_confirmation" style="font-size: 10pt" placeholder="Please Confirm Your New Password" required/>
                                                 </div>
                                             </div>
                                         </div>
@@ -227,7 +228,7 @@
 
                                             <div class="row">
                                                 <label for="description" class="col-sm-4 col-form-label col-md-2" style="font-size: 10pt">Vehicle Description<span class="text-danger">*</span></label>
-                                                <div class="col-sm-8 col-md-10 mb-2">
+                                                <div class="col-sm-8 col-md-10 mb-3">
                                                     <textarea rows="4" class="form-control" name="description" id="validationTextarea" style="font-size: 10pt" placeholder="Brand, Model, Color, Specific Features, etc..." required>{{ $data->description }}</textarea>
                                                 </div>
                                                 <div class="invalid-feedback">
@@ -236,8 +237,8 @@
                                             </div>
 
                                             <div class="row">
-                                                <div class="col-md-12 text-center">
-                                                    <button type="submit" class="btn btn-dark btn-sm">Submit</button>
+                                                <div class="col-md-12 text-end">
+                                                    <button type="submit" class="btn btn-dark">Submit</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -279,7 +280,7 @@
 
                                                 <div class="row">
                                                     <label for="description" class="col-sm-4 col-form-label col-md-2" style="font-size: 10pt">Vehicle Description<span class="text-danger">*</span></label>
-                                                    <div class="col-sm-8 col-md-10 mb-2">
+                                                    <div class="col-sm-8 col-md-10 mb-3">
                                                         <textarea rows="4" class="form-control" name="description" id="validationTextarea" style="font-size: 10pt" placeholder="Brand, Model, Color, Specific Features, etc..." required>{{ $data->description }}</textarea>
                                                     </div>
                                                     <div class="invalid-feedback">
@@ -288,8 +289,8 @@
                                                 </div>
 
                                                 <div class="row">
-                                                    <div class="col-md-12 text-center">
-                                                        <button type="submit" class="btn btn-dark btn-sm">Submit</button>
+                                                    <div class="col-md-12 text-end">
+                                                        <button type="submit" class="btn btn-dark">Submit</button>
                                                     </div>
                                                 </div>
                                             </div>

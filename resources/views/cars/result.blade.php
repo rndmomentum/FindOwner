@@ -88,7 +88,7 @@
                         <h5><strong>Sorry!</strong> The plate number not exists.</h5>
                     </div>
                     <div class="d-grid mx-auto col-11 pb-3">
-                        <a href="{{ url('search') }}/{{ $refer_id }}" class="btn btn-block btn-danger btn-sm">Back</a>
+                        <a href="{{ url('search') }}/{{ $refer_id }}" class="btn btn-block btn-danger btn-sm">Search Other Vehicle</a>
                     </div>  
                 </div>
             </div>

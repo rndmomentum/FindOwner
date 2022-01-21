@@ -22,18 +22,17 @@
         
 </div>
 
-    <div class="card shadow-lg mb-4">
-        <div class="card-body">
-            
+    <div class="mx-3">
+    <div class="col-12 align-center card shadow-lg mb-4">
+        <div class="card-body ">
             <div class="row">  
-
                 <div class="col-md-12 mb-3">
                     <div style="background-color: #810000; color:white; padding: 10px 30px 10px; text-align: center">
                         <h5> Vehicle List Detail </h5>
                     </div>
                 </div>
 
-                <div class="col-md-12 mb-3">
+                <div class="col-md-12 mb-3 text-end">
                     <a class="btn btn-dark btn-sm float-right" href="{{ url('create') }}/{{ $refer_id }}"><i class="bi bi-plus-lg"></i> Add</a> 
                 </div>
 
@@ -94,6 +93,7 @@
 
             </div>
         </div>        
+    </div>
     </div> 
                         
 @endsection
