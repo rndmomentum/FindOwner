@@ -40,33 +40,42 @@
 
   <body>
     <div id="bgcolor"> 
-      <nav class="navbar shadow" style="height: 50px">
-      <div class="container">
-        <a class="navbar-brand" href="{{ url('search') }}/{{ $refer_id }}">
-          <img src="{{ asset('/img/icon2.png') }}" width="30"><span style="color: black;"> FindOwner </span>
-        </a>
-       
-        <ul class="nav justify-content-end">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" style="text-transform:capitalize; color: black;" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">{{ Auth::guard('carDetails')->user()->staffname }}</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="{{ url('profile') }}/{{ Auth::guard('carDetails')->user()->refer_id }}"><i class="bi bi-person-fill"></i> Profile</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li>
-                <a class="dropdown-item" href="{{ url('logout') }}" 
-                  onclick="event.preventDefault(); 
-                  document.getElementById('logout-form').submit();">
-                  <i class="bi bi-door-open-fill"></i> Logout
-                </a>
-                <form id="logout-form" action="{{ url('logout') }}" method="POST" class="d-none">
-                  @csrf
-                </form>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </nav>
+
+      <nav class="navbar navbar-expand-lg shadow">
+        <div class="container">
+          <a class="navbar-brand" href="{{ url('search') }}/{{ $refer_id }}">
+            <img src="{{ asset('/img/icon2.png') }}" width="30"><span style="color: black;"> FindOwner </span>
+          </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <i class="bi bi-caret-down-fill"></i>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+              
+              <div class="navbar-nav ms-auto">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" style="text-transform:capitalize; color: black;" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">{{ Auth::guard('carDetails')->user()->staffname }}</a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{{ url('profile') }}/{{ Auth::guard('carDetails')->user()->refer_id }}"><i class="bi bi-person-fill"></i> Profile</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li>
+                      <a class="dropdown-item" href="{{ url('logout') }}" 
+                        onclick="event.preventDefault(); 
+                        document.getElementById('logout-form').submit();">
+                        <i class="bi bi-door-open-fill"></i> Logout
+                      </a>
+                      <form id="logout-form" action="{{ url('logout') }}" method="POST" class="d-none">
+                        @csrf
+                      </form>
+                    </li>
+                  </ul>
+                </li>
+              </div>
+              
+          </div>
+
+        </div>
+      </nav>
 
       <div class="container-fluid center">
         @yield('content')
