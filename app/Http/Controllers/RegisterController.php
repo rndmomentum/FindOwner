@@ -19,7 +19,7 @@ class RegisterController extends Controller
     }
 
     public function postRegister(Request $request) {
-        // dd('john');
+        
         $plate = Car::where('noplate', $request->noplate);
 
         if($plate->exists())
