@@ -238,7 +238,7 @@
 
                                             <div class="row">
                                                 <div class="col-md-12 text-end">
-                                                    <button type="submit" class="btn btn-dark">Submits</button>
+                                                    <button type="submit" class="btn btn-dark">Submit</button>
                                                 </div>
                                             </div>
                                         </div>
