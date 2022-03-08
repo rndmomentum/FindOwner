@@ -101,6 +101,7 @@ class CarController extends Controller
 
             Car::create([
                 'noplate' => request('noplate'),
+                'ic' => Auth::guard('carDetails')->user()->ic,
                 'description' => request('description'),
                 'type' => request('type'),
                 'staffname' => Auth::guard('carDetails')->user()->staffname,
@@ -148,6 +149,7 @@ class CarController extends Controller
 
             $update -> update([
                 'staffname' => request('staffname'),
+                'ic' => request('ic'),
                 'nophone' => request('nophone'),
                 'department' => request('department'),
                 'unit' => request('unit'),

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
+    <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!-- icon top -->
@@ -36,7 +36,7 @@
         <div id="searchblock">
             <div class="row justify-content-center">
 
-                <div class="col-md-11 p-0">
+                <div class="col-11 p-0">
                     <div class="row">
                         <div class="col-md-12 mt-3">
                             @if(session('error'))
@@ -68,16 +68,26 @@
 
                                         <div class="row">
                                             <label for="name" class="col-sm-4 col-form-label col-md-2" style="font-size: 10pt">Team Name<span class="text-danger">*</span></label>
-                                            <div class="col-sm-8 col-md-4 mb-2">
-                                                <input type="text" class="form-control" name="staffname" id="validationCustom03" style="text-transform:capitalize; font-size: 10pt" placeholder="Full Name" required/>
+                                            <div class="col-sm-8 col-md-10 mb-2">
+                                                <input type="text" class="form-control" name="staffname" id="validationCustom01" style="text-transform:capitalize; font-size: 10pt" placeholder="Full Name" required/>
                                                 <div class="invalid-feedback">
                                                     Please provide a full name.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <label for="ic" class="col-sm-4 col-form-label col-md-2" style="font-size: 10pt">IC. Number<span class="text-danger">*</span></label>
+                                            <div class="col-sm-10 col-md-4 mb-2">
+                                                <input type="text" class="form-control" name="ic" id="validationCustom02" style="font-size: 10pt" placeholder="IC Number (Nospace-eg: 999999009999)" pattern="[0-9]+" required/>
+                                                <div class="invalid-feedback">
+                                                    Please provide a valid IC Number.
                                                 </div>
                                             </div>
 
                                             <label for="nophone" class="col-sm-4 col-form-label col-md-2" style="font-size: 10pt">Phone No.<span class="text-danger">*</span></label>
                                             <div class="col-sm-8 col-md-4 mb-2">
-                                                <input type="text" class="form-control" name="nophone" id="validationCustom04" style="font-size: 10pt" placeholder="Phone Number (Nospace-eg: 0100000000)" pattern="[0-9]+" required/>
+                                                <input type="text" class="form-control" name="nophone" id="validationCustom03" style="font-size: 10pt" placeholder="Phone Number (Nospace-eg: 0100000000)" pattern="[0-9]+" required/>
                                                 <div class="invalid-feedback">
                                                     Please provide a valid phone number.
                                                 </div>
@@ -87,7 +97,7 @@
                                         <div class="row">
                                             <label for="department" class="col-sm-4 col-form-label col-md-2" style="font-size: 10pt">Department<span class="text-danger">*</span></label>
                                             <div class="col-sm-8 col-md-4 mb-2">
-                                                <select class="form-select" name="department" id="validationCustom05" style="font-size: 10pt" required>
+                                                <select class="form-select" name="department" id="validationCustom04" style="font-size: 10pt" required>
                                                     <option value="">Choose Department...</option>
                                                     <option value="A&F">Account & Finance (A&F)</option>
                                                     <option value="HR">Admin & HR (HR)</option>
@@ -97,6 +107,7 @@
                                                     <option value="Operation">Operation</option>
                                                     <option value="R&D">Research and Development (R&D)</option>
                                                     <option value="Sales">Sales</option>
+                                                    <option value="SLT">Senior Leader Team (SLT)</option>
                                                     <option value="Team Momentum">Team Momentum</option>
                                                 </select>
                                                 <div class="invalid-feedback">
@@ -139,7 +150,7 @@
                                         <div class="row">
                                             <label for="type" class="col-sm-4 col-form-label col-md-2" style="font-size: 10pt">Type<span class="text-danger">*</span></label>
                                             <div class="col-sm-8 col-md-4 mb-2">
-                                                <select class="form-select" name="type" id="validationCustom01" style="font-size: 10pt" required>
+                                                <select class="form-select" name="type" id="validationCustom05" style="font-size: 10pt" required>
                                                     <option value="">Choose Vehicle Type...</option>
                                                     <option value="Car">Car</option>
                                                     <option value="Motorcycle">Motorcycle</option>
@@ -152,7 +163,7 @@
 
                                             <label for="plate" class="col-sm-4 col-form-label col-md-2" style="font-size: 10pt">Plate No.<span class="text-danger">*</span></label>
                                             <div class="col-sm-8 col-md-4 mb-2">
-                                                <input type="text" class="form-control" name="noplate" id="validationCustom02" style="font-size: 10pt" placeholder="Plate Number (Nospace-eg:XXX0000)" pattern="^[-a-zA-Z0-9@\.+_]+$" title="Please remove space between characters" minlength="4" required/>
+                                                <input type="text" class="form-control" name="noplate" id="validationCustom06" style="font-size: 10pt" placeholder="Plate Number (Nospace-eg:XXX0000)" pattern="^[-a-zA-Z0-9@\.+_]+$" title="Please remove space between characters" minlength="4" required/>
                                                 <div class="invalid-feedback">
                                                     Please provide a plate number(Make sure no space).
                                                 </div>
@@ -190,6 +201,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
                             
             </div>

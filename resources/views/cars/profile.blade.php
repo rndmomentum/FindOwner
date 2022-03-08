@@ -53,16 +53,26 @@
 
                                             <div class="row">
                                                 <label for="name" class="col-sm-4 col-form-label col-md-2" style="font-size: 10pt">Team Name<span class="text-danger">*</span></label>
-                                                <div class="col-sm-8 col-md-4 mb-2">
+                                                <div class="col-sm-8 col-md-10 mb-2">
                                                     <input type="text" class="form-control" name="staffname" id="validationCustom01" value="{{ $car->staffname }}" style="text-transform:capitalize; font-size: 10pt" placeholder="Full Name" required/>
                                                     <div class="invalid-feedback">
                                                         Please provide a full name.
                                                     </div>
                                                 </div>
+                                            </div>    
+
+                                            <div class="row">
+                                                <label for="name" class="col-sm-4 col-form-label col-md-2" style="font-size: 10pt">IC Number<span class="text-danger">*</span></label>
+                                                <div class="col-sm-8 col-md-4 mb-2">
+                                                    <input type="text" class="form-control" name="ic" id="validationCustom02" value="{{ $car->ic }}" style="font-size: 10pt" placeholder="IC Number (Nospace-eg: 999999009999" pattern="[0-9]+" required/>
+                                                    <div class="invalid-feedback">
+                                                        Please provide a IC number.
+                                                    </div>
+                                                </div>
 
                                                 <label for="nophone" class="col-sm-4 col-form-label col-md-2" style="font-size: 10pt">Phone No.<span class="text-danger">*</span></label>
                                                 <div class="col-sm-8 col-md-4 mb-2">
-                                                    <input type="text" class="form-control" name="nophone" id="validationCustom02" value="{{ $car->nophone }}" style="font-size: 10pt" placeholder="Phone Number (Nospace-eg: 0100000000)" pattern="[0-9]+" required/>
+                                                    <input type="text" class="form-control" name="nophone" id="validationCustom03" value="{{ $car->nophone }}" style="font-size: 10pt" placeholder="Phone Number (Nospace-eg: 0100000000)" pattern="[0-9]+" required/>
                                                     <div class="invalid-feedback">
                                                         Please provide a valid phone number.
                                                     </div>
@@ -72,7 +82,7 @@
                                             <div class="row">
                                                 <label for="department" class="col-sm-4 col-form-label col-md-2" style="font-size: 10pt">Department<span class="text-danger">*</span></label>
                                                 <div class="col-sm-8 col-md-4 mb-2">
-                                                    <select class="form-select" name="department" id="validationCustom03" style="font-size: 10pt" required>
+                                                    <select class="form-select" name="department" id="validationCustom04" style="font-size: 10pt" required>
                                                         <option value="A&F" {{ $car->department == 'A&F' ? 'selected' : '' }} >Account & Finance (A&F)</option>
                                                         <option value="HR" {{ $car->department == 'HR' ? 'selected' : '' }} >Admin & HR (HR)</option>
                                                         <option value="CEO Office" {{ $car->department == 'CEO Office' ? 'selected' : '' }} >CEO Office</option>
@@ -81,6 +91,7 @@
                                                         <option value="Operation" {{ $car->department == 'Operation' ? 'selected' : '' }} >Operation</option>
                                                         <option value="R&D" {{ $car->department == 'R&D' ? 'selected' : '' }} >Research and Development (R&D)</option>
                                                         <option value="Sales" {{ $car->department == 'Sales' ? 'selected' : '' }} >Sales</option>
+                                                        <option value="SLT" {{ $car->department == 'SLT' ? 'selected' : '' }} >Senior Leader Team (SLT)</option>
                                                         <option value="Team Momentum" {{ $car->department == 'Team Momentum' ? 'selected' : '' }} >Team Momentum</option>
                                                     </select>
                                                     <div class="invalid-feedback">
@@ -200,7 +211,7 @@
                                             <div class="row">
                                                 <label for="type" class="col-sm-4 col-form-label col-md-2" style="font-size: 10pt">Type<span class="text-danger">*</span></label>
                                                 <div class="col-sm-8 col-md-4 mb-2">
-                                                    <select class="form-select" name="type" id="validationCustom04" style="font-size: 10pt" required>
+                                                    <select class="form-select" name="type" id="validationCustom05" style="font-size: 10pt" required>
                                                         <option value="Car" {{ $data->type == 'Car' ? 'selected' : '' }} >Car</option>
                                                         <option value="Motorcycle" {{ $data->type == 'Motorcycle' ? 'selected' : '' }} >Motorcycle</option>
                                                         <option value="Van" {{ $data->type == 'Van' ? 'selected' : '' }} >Van</option>
@@ -212,7 +223,7 @@
 
                                                 <label for="plate" class="col-sm-4 col-form-label col-md-2" style="font-size: 10pt">Plate No.<span class="text-danger">*</span></label>
                                                 <div class="col-sm-8 col-md-4 mb-2">
-                                                    <input type="text" class="form-control" name="noplate" id="validationCustom05" value="{{ $data->noplate }}" style="font-size: 10pt" placeholder="Plate Number (Nospace-eg:XXX0000)" pattern="^[-a-zA-Z0-9@\.+_]+$" title="Please remove space between characters" minlength="4" required/>
+                                                    <input type="text" class="form-control" name="noplate" id="validationCustom06" value="{{ $data->noplate }}" style="font-size: 10pt" placeholder="Plate Number (Nospace-eg:XXX0000)" pattern="^[-a-zA-Z0-9@\.+_]+$" title="Please remove space between characters" minlength="4" required/>
                                                     <div class="invalid-feedback">
                                                         Please provide a plate number(Make sure no space).
                                                     </div>

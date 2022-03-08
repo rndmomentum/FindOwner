@@ -3,29 +3,24 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-// use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Model;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
-// use Illuminate\Database\Eloquent\SoftDeletingTrait;
+use Laravel\Sanctum\HasApiTokens;
 
 class Car extends Model implements AuthenticatableContract
 {
     use HasFactory;
     use Authenticatable;
-    // use SoftDeletingTrait;
+    use HasApiTokens;
+
     protected $table ='cars';
 
-    // protected $hidden = [
-    //  'password', 
-    // ];
-    // public function getAuthPassword()
-    // {
-    //  return $this->password;
-    // }
+    // protected $guarded = []; 
 
     protected $fillable = [
         'noplate',
+        'ic',
         'description',
         'type',
         'staffname',

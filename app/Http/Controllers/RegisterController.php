@@ -57,6 +57,7 @@ class RegisterController extends Controller
 
             $new = Car::create([
                 'noplate' => request('noplate'),
+                'ic' => request('ic'),
                 'description' => request('description'),
                 'type' => request('type'),
                 'staffname' => request('staffname'),
@@ -64,8 +65,7 @@ class RegisterController extends Controller
                 'unit' => request('unit'),
                 'nophone' => request('nophone'),
                 'password' => $password,
-                'img_path' => $img_path,
-                // 'refer_id' => count($kpimasters) > 0 ? $kpimasters->sortByDesc('created_at')->first()->id : '0',
+                'img_path' => $img_path
             ]);
 
             $newId = $new->id;
@@ -77,7 +77,7 @@ class RegisterController extends Controller
             $owner->save();
 
             //success go to all list
-            return redirect('/login')->with('success', 'The vehicle details is saved successfully.');
+            return redirect('/')->with('success', 'The vehicle details is saved successfully.');
         
         }
     }

@@ -2,6 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\CarController;
+use App\Models\Car;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +17,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::middleware('auth:sanctum')->get('/carDetails', function (Request $request) {
     return $request->user();
 });
+
+
+Route::get('car/all', 'Api\CarController@allCar');
+Route::get('car/{ic}', 'Api\CarController@userCar');
+// Route::post('login', 'Api\AuthController@login');

@@ -14,8 +14,9 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
-        'passwords' => 'users',
+        // 'guard' => 'web',
+        'guard' => 'carDetails',
+        'passwords' => 'cars',
     ],
 
     /*
@@ -43,7 +44,18 @@ return [
         'carDetails' => [
             'driver' => 'session',
             'provider' => 'cars',
-        ] 
+            'hash' => false,
+        ],
+        // 'api' => [
+        //     'driver' => 'token',
+        //     'provider' => 'users',
+        //     'hash' => true,
+        // ],
+        'carApi' => [
+            'driver' => 'token',
+            'provider' => 'cars',
+            'hash' => false,
+        ],
     ],
 
     /*
