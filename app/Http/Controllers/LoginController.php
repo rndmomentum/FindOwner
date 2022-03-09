@@ -17,11 +17,11 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $request->validate([
-            'noplate' => 'required',
+            'ic' => 'required',
             'password' => 'required'
         ]);
 
-        $credentials = $request->only('noplate', 'password');
+        $credentials = $request->only('ic', 'password');
 
         if(Auth::guard('carDetails')->attempt($credentials)) {
             $refer_id = Auth::guard('carDetails')->user()->refer_id;

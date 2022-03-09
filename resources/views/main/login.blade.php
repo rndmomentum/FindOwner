@@ -51,7 +51,7 @@
                                 <form method="POST" action="{{ url('loginProcess') }}" class="needs-validation" novalidate>
                                     @csrf
                                     <div class="d-grid mx-auto col-11 pb-3">
-                                        <input style="font-size: 10pt" type="text" placeholder="Insert Plate Number (No Space)" id="validationCustom00" class="form-control" pattern="^[-a-zA-Z0-9@\.+_]+$" name="noplate" required autofocus />
+                                        <input style="font-size: 10pt" type="text" placeholder="Insert IC Number (No Space)" id="validationCustom00" class="form-control" pattern="^[-a-zA-Z0-9@\.+_]+$" name="ic" required autofocus />
                                         <div class="invalid-feedback">Please remove space between characters.</div>
                                         @if ($errors->has('noplate'))
                                             <span class="text-danger">{{ $error->first('ic') }}</span>
