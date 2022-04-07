@@ -18,6 +18,7 @@ use App\Http\Controllers\RegisterController;
 //login process
 Route::get('/',[ LoginController::class, 'showlogin']);
 Route::post('loginProcess',[ LoginController::class, 'login']);  // view page
+Route::get('/login2',[ LoginController::class, 'login2']);
 
 // first time create
 Route::get('register',[ RegisterController::class, 'register']); // view page
