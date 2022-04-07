@@ -34,20 +34,25 @@ class LoginController extends Controller
 
     public function login2(Request $request)
     {
-
         $request->validate([
             'ic_user' => 'required'
         ]);
 
-        $car = Car::where('ic' , $request->ic_user)->first();
-        $credentials =  array('ic' => $car->ic, 'password' => $car->ic);
+        $ic_user = Car::where('ic', $request->ic_user);
+        if($ic_user->exists()) {
+            $car = Car::where('ic' , $request->ic_user)->first();
+            $credentials =  array('ic' => $car->ic, 'password' => $car->ic);
 
-        if(Auth::guard('carDetails')->attempt($credentials)) {
-            $refer_id = Car::where('ic' , $request->ic_user)->value('refer_id');
-            return redirect('search/'.$refer_id)->with('success', 'Login successfull.');
+            if(Auth::guard('carDetails')->attempt($credentials)) {
+                $refer_id = Car::where('ic' , $request->ic_user)->value('refer_id');
+                return redirect('search/'.$refer_id)->with('success', 'Login successfull.');
+            }
+            else {
+                return redirect('/')->with('error','You have entered invalid credentials. Please double-check your IC number and password.');
+            }
         }
         else {
-            return redirect('/')->with('error','You have entered invalid credentials. Please double-check your IC number and password.');
+            return redirect('/')->with('error','You have not register yet. Register your FindOwner account now.');
         }
     }
 

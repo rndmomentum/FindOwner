@@ -77,9 +77,9 @@
                                     </div>
                                 </form>
 
-                                <center><div class="row "><small>
-                                    Haven't insert any vehicle details here, you can insert now by <a href="{{ url('register') }}"> Clicking Here</a>
-                                </small></div></center>
+                                <div class="row text-end px-4"><small>
+                                    Have no account? <a href="{{ url('register') }}" class="btn btn-success btn-sm"> Register</a>
+                                </small></div>
                                 <br>
                             </div>
                         </div>
